@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class RateStarView: UIView {
+@IBDesignable class YCRateView: UIView {
 
   var frontImageView: UIImageView!
   var backImageView: UIImageView!

@@ -13,7 +13,7 @@ public class YCRateView: UIView {
 
   public var frontImageView: UIImageView!
   var backImageView: UIImageView!
-  var slider: CustomSlider!
+  public var slider: CustomSlider!
   public var showNumberLabel: UILabel!
 
   @IBInspectable var frontImage: UIImage? {
@@ -189,8 +189,8 @@ public class YCRateView: UIView {
 
 }
 
-class CustomSlider: UISlider {
-  override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+open class CustomSlider: UISlider {
+  override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
     return true
   }
 }

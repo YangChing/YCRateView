@@ -8,12 +8,13 @@
 
 import UIKit
 
-@IBDesignable class YCRateView: UIView {
+@IBDesignable
+public class YCRateView: UIView {
 
   var frontImageView: UIImageView!
   var backImageView: UIImageView!
   var slider: CustomSlider!
-  var showNumberLabel: UILabel!
+  public var showNumberLabel: UILabel!
 
   @IBInspectable var frontImage: UIImage? {
     didSet {
@@ -32,12 +33,12 @@ import UIKit
     }
   }
 
-  required init?(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     createSubviews()
   }
 
-  override init(frame: CGRect) {
+  override public init(frame: CGRect) {
     super.init(frame: frame)
     createSubviews()
   }
@@ -80,7 +81,7 @@ import UIKit
   }
 
 
-  override func draw(_ rect: CGRect) {
+  override public func draw(_ rect: CGRect) {
     super.draw(rect)
     if let constraint = (frontImageView.constraints.filter{$0.firstAttribute == .width}.first) {
       constraint.constant = backImageView.frame.width * CGFloat(slider.value) / 5
@@ -93,7 +94,7 @@ import UIKit
     layoutIfNeeded()
   }
 
-  override func awakeFromNib() {
+  override public func awakeFromNib() {
 
     slider.maximumValue = 5.0
     slider.minimumValue = 0.0

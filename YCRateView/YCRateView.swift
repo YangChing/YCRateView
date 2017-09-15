@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 public class YCRateView: UIView {
 
-  var frontImageView: UIImageView!
+  public var frontImageView: UIImageView!
   var backImageView: UIImageView!
   var slider: CustomSlider!
   public var showNumberLabel: UILabel!

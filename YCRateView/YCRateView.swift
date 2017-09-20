@@ -8,6 +8,10 @@
 
 import UIKit
 
+public protocol YCRateViewDelegate: class {
+  func ycRateViewSliderDidChange(sender: YCRateView, value: Float)
+}
+
 @IBDesignable
 public class YCRateView: UIView {
 
@@ -15,6 +19,7 @@ public class YCRateView: UIView {
   var backImageView: UIImageView!
   public var slider: CustomSlider!
   public var showNumberLabel: UILabel!
+  public weak var delegate: YCRateViewDelegate?
 
   @IBInspectable var frontImage: UIImage? {
     didSet {
@@ -77,6 +82,7 @@ public class YCRateView: UIView {
       constraint.constant = backImageView.frame.width * CGFloat(slider.value) / 5
     }
     showNumberLabel.text = String(format: "%.1f",sender.value)
+    delegate?.ycRateViewSliderDidChange(sender: self, value: sender.value)
     layoutIfNeeded()
   }
 

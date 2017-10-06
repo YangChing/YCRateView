@@ -16,7 +16,7 @@ public protocol YCRateViewDelegate: class {
 public class YCRateView: UIView {
 
   public var frontImageView: UIImageView!
-  var backImageView: UIImageView!
+  public var backImageView: UIImageView!
   public var slider: CustomSlider!
   public var showNumberLabel: UILabel!
   public weak var delegate: YCRateViewDelegate?

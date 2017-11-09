@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="srp-UB-M4e">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="iF3-m9-kTo">
+            <objects>
+                <viewController id="srp-UB-M4e" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zqg-bL-VXn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NjU-tB-OtH" customClass="YCRateView" customModule="YCRateView" customModuleProvider="target">
+                                <rect key="frame" x="131" y="318.5" width="112" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="frontImage" value="star_space_large.png"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="backImage" value="star_full_large.png"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NjU-tB-OtH" firstAttribute="centerX" secondItem="Zqg-bL-VXn" secondAttribute="centerX" id="X3z-iS-5pK"/>
+                            <constraint firstItem="NjU-tB-OtH" firstAttribute="centerY" secondItem="Zqg-bL-VXn" secondAttribute="centerY" id="jbV-61-72m"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tQa-8C-XIa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MMP-22-IvQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-310" y="204"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="star_full_large.png" width="112" height="19"/>
+        <image name="star_space_large.png" width="112" height="19"/>
+    </resources>
+</document>

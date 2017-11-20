@@ -20,6 +20,7 @@ public class YCRateView: UIView {
   public var slider: CustomSlider!
   public var showNumberLabel: UILabel!
   public weak var delegate: YCRateViewDelegate?
+  public var rate: Int?
 
   @IBInspectable var frontImage: UIImage? {
     didSet {
@@ -65,6 +66,7 @@ public class YCRateView: UIView {
     showNumberLabel.translatesAutoresizingMaskIntoConstraints = false
     slider = CustomSlider()
     slider.translatesAutoresizingMaskIntoConstraints = false
+    slider.isEnabled = false
 
     addSubview(showNumberLabel)
     addSubview(slider)
@@ -83,6 +85,11 @@ public class YCRateView: UIView {
     }
     showNumberLabel.text = String(format: "%.1f",sender.value)
     delegate?.ycRateViewSliderDidChange(sender: self, value: sender.value)
+    if slider.value >= 0.1 {
+      showNumberLabel.isHidden = false
+    } else {
+      showNumberLabel.isHidden = true
+    }
     layoutIfNeeded()
   }
 
@@ -96,6 +103,11 @@ public class YCRateView: UIView {
       if let width = backImageView.image?.size.width {
         constraint.constant = width
       }
+    }
+    if slider.value >= 0.1 {
+      showNumberLabel.isHidden = false
+    } else {
+      showNumberLabel.isHidden = true
     }
     layoutIfNeeded()
   }

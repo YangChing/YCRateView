@@ -1,7 +1,6 @@
 
 Pod::Spec.new do |s|
 
-
   s.name         = "YCRateView"
   s.version      = "1.0.9"
   s.summary      = "A rate view slider."

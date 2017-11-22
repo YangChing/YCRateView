@@ -105,6 +105,11 @@ public class YCRateView: UIView {
         constraint.constant = width
       }
     }
+    if slider.value >= 0.1 {
+      showNumberLabel.isHidden = false
+    } else {
+      showNumberLabel.isHidden = true
+    }
   }
 
   override public func awakeFromNib() {

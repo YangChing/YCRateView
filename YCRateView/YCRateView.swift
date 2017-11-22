@@ -74,6 +74,12 @@ public class YCRateView: UIView {
     addSubview(backImageView)
     layout()
 
+    if slider.value >= 0.1 {
+      showNumberLabel.isHidden = false
+    } else {
+      showNumberLabel.isHidden = true
+    }
+
   }
 
   func sliderMove(_ sender: UISlider) {
@@ -85,12 +91,7 @@ public class YCRateView: UIView {
     }
     showNumberLabel.text = String(format: "%.1f",sender.value)
     delegate?.ycRateViewSliderDidChange(sender: self, value: sender.value)
-    if slider.value >= 0.1 {
-      showNumberLabel.isHidden = false
-    } else {
-      showNumberLabel.isHidden = true
-    }
-    layoutIfNeeded()
+
   }
 
 
@@ -104,12 +105,6 @@ public class YCRateView: UIView {
         constraint.constant = width
       }
     }
-    if slider.value >= 0.1 {
-      showNumberLabel.isHidden = false
-    } else {
-      showNumberLabel.isHidden = true
-    }
-    layoutIfNeeded()
   }
 
   override public func awakeFromNib() {

@@ -52,12 +52,12 @@ public class YCRateView: UIView {
   func createSubviews() {
     //加入上層畫面
     frontImageView = UIImageView()
-    frontImageView.contentMode = UIViewContentMode.left
+    frontImageView.contentMode = .left
     frontImageView.clipsToBounds = true
     frontImageView.translatesAutoresizingMaskIntoConstraints = false
     //加入下層畫面
     backImageView = UIImageView()
-    backImageView.contentMode = UIViewContentMode.left
+    backImageView.contentMode = .left
     backImageView.translatesAutoresizingMaskIntoConstraints = false
     //加入顯示的label
     showNumberLabel = UILabel()
@@ -74,42 +74,46 @@ public class YCRateView: UIView {
     addSubview(backImageView)
     layout()
 
+  }
+
+  func sliderMove(_ sender: UISlider) {
+    guard sender.state != .normal else {
+      return
+    }
+    if let constraint = (frontImageView.constraints.filter{$0.firstAttribute == .width}.first) {
+      constraint.constant = (backImage?.size.width ?? 0) * CGFloat(slider.value) / 5
+    }
+    showNumberLabel.text = String(format: "%.1f",sender.value)
+    delegate?.ycRateViewSliderDidChange(sender: self, value: sender.value)
     if slider.value >= 0.1 {
       showNumberLabel.isHidden = false
     } else {
       showNumberLabel.isHidden = true
     }
-
-  }
-
-  func sliderMove(_ sender: UISlider) {
-    if sender.state == .normal {
-      return
-    }
-    if let constraint = (frontImageView.constraints.filter{$0.firstAttribute == .width}.first) {
-      constraint.constant = backImageView.frame.width * CGFloat(slider.value) / 5
-    }
-    showNumberLabel.text = String(format: "%.1f",sender.value)
-    delegate?.ycRateViewSliderDidChange(sender: self, value: sender.value)
-
+    layoutIfNeeded()
   }
 
 
   override public func draw(_ rect: CGRect) {
     super.draw(rect)
     if let constraint = (frontImageView.constraints.filter{$0.firstAttribute == .width}.first) {
-      constraint.constant = backImageView.frame.width * CGFloat(slider.value) / 5
+      constraint.constant = (backImage?.size.width ?? 0) * CGFloat(slider.value) / 5
     }
     if let constraint = (backImageView.constraints.filter{$0.firstAttribute == .width}.first) {
       if let width = backImageView.image?.size.width {
         constraint.constant = width
       }
     }
-
+    if slider.value >= 0.1 {
+      showNumberLabel.isHidden = false
+    } else {
+      showNumberLabel.isHidden = true
+    }
+    layoutIfNeeded()
   }
 
   override public func awakeFromNib() {
-
+    super.awakeFromNib()
     slider.maximumValue = 5.0
     slider.minimumValue = 0.0
     slider.value = Float(showNumberLabel.text ?? "0")!
@@ -120,15 +124,7 @@ public class YCRateView: UIView {
 
     showNumberLabel.sizeToFit()
     showNumberLabel.numberOfLines = 0
-
-    if slider.value >= 0.1 {
-      showNumberLabel.isHidden = false
-    } else {
-      showNumberLabel.isHidden = true
-    }
   }
-
-
 
   func layout(){
     let views = ["frontImageView": frontImageView,
@@ -151,7 +147,7 @@ public class YCRateView: UIView {
 
     // 4
     let backImageViewVerticalConstraints = NSLayoutConstraint.constraints(
-      withVisualFormat: "V:|[frontImageView(==backImageView)]|",
+      withVisualFormat: "V:|[frontImageView]|",
       options: [.alignAllCenterY],
       metrics: nil,
       views: views)
@@ -160,7 +156,7 @@ public class YCRateView: UIView {
 
     // 5
     let sliderVerticalConstraints = NSLayoutConstraint.constraints(
-      withVisualFormat: "V:|[slider(==backImageView)]",
+      withVisualFormat: "V:|[slider]|",
       options: [.alignAllCenterY],
       metrics: nil,
       views: views)
@@ -190,7 +186,7 @@ public class YCRateView: UIView {
 
     // 5
     let sliderHorizontalConstraints = NSLayoutConstraint.constraints(
-      withVisualFormat: "H:|[slider(==backImageView)]|",
+      withVisualFormat: "H:|[slider]|",
       options: [.alignAllCenterX],
       metrics: nil,
       views: views)
@@ -214,3 +210,4 @@ open class CustomSlider: UISlider {
     return true
   }
 }
+

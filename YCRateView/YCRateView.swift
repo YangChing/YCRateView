@@ -62,7 +62,7 @@ public class YCRateView: UIView {
     //加入顯示的label
     showNumberLabel = UILabel()
     showNumberLabel.font = UIFont(name: "PingFangTC", size: 15)
-    showNumberLabel.textColor = UIColor(red: 165/255, green: 140/255, blue: 101/255, alpha: 1)
+    showNumberLabel.textColor = UIColor(red: 186 / 255, green: 143 / 255, blue: 92 / 255, alpha: 1.0)
     showNumberLabel.translatesAutoresizingMaskIntoConstraints = false
     slider = CustomSlider()
     slider.translatesAutoresizingMaskIntoConstraints = false

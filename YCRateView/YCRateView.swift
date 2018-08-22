@@ -12,15 +12,23 @@ public protocol YCRateViewDelegate: class {
   func ycRateViewSliderDidChange(sender: YCRateView, value: Float)
 }
 
+class SliderValue {
+  var maxValue: Float = 5
+  var minValue: Float = 0
+  var intervalValue: Float = 0.5
+}
+
 @IBDesignable
 public class YCRateView: UIView {
 
-  public var frontImageView: UIImageView!
-  public var backImageView: UIImageView!
+  public var frontImageView = UIImageView()
+  public var backImageView = UIImageView()
   public var slider: CustomSlider!
   public var showNumberLabel: UILabel!
   public weak var delegate: YCRateViewDelegate?
   public var rate: Int?
+
+  private var sliderValue = SliderValue()
 
   @IBInspectable var frontImage: UIImage? {
     didSet {
@@ -39,6 +47,21 @@ public class YCRateView: UIView {
     }
   }
 
+  @IBInspectable var max: Float {
+    set {
+      self.sliderValue.maxValue = newValue
+    }
+    get {
+      return self.sliderValue.maxValue
+    }
+  }
+
+  public var isSliderEnabled: Bool = false {
+    didSet {
+      self.slider.isEnabled = isSliderEnabled
+    }
+  }
+
   required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     createSubviews()
@@ -49,14 +72,24 @@ public class YCRateView: UIView {
     createSubviews()
   }
 
-  func createSubviews() {
+  private func valueMaker() -> [Float] {
+    print("maxValue: \(max)")
+    var values = [Float]()
+    var min = sliderValue.minValue
+    values.append(min)
+    while min < sliderValue.maxValue {
+      min += sliderValue.intervalValue
+      values.append(min)
+    }
+    return values
+  }
+
+  private func createSubviews() {
     //加入上層畫面
-    frontImageView = UIImageView()
     frontImageView.contentMode = .left
     frontImageView.clipsToBounds = true
     frontImageView.translatesAutoresizingMaskIntoConstraints = false
     //加入下層畫面
-    backImageView = UIImageView()
     backImageView.contentMode = .left
     backImageView.translatesAutoresizingMaskIntoConstraints = false
     //加入顯示的label
@@ -64,9 +97,17 @@ public class YCRateView: UIView {
     showNumberLabel.font = UIFont(name: "PingFangTC", size: 15)
     showNumberLabel.textColor = UIColor(red: 186 / 255, green: 143 / 255, blue: 92 / 255, alpha: 1.0)
     showNumberLabel.translatesAutoresizingMaskIntoConstraints = false
-    slider = CustomSlider()
+    slider = CustomSlider.init(frame: frontImageView.frame,
+                               values: self.valueMaker(),
+                               callback: { [unowned self] value in
+                                self.showNumberLabel.text = String(format: "%.1f", value)
+                                self.delegate?.ycRateViewSliderDidChange(sender: self, value: value)
+                                self.setBackImage(value: value)
+
+    })
     slider.translatesAutoresizingMaskIntoConstraints = false
     slider.isEnabled = false
+
 
     addSubview(showNumberLabel)
     addSubview(slider)
@@ -76,28 +117,10 @@ public class YCRateView: UIView {
 
   }
 
-  func sliderMove(_ sender: UISlider) {
-    guard sender.state != .normal else {
-      return
-    }
+  func setBackImage(value: Float) {
+    let differ = sliderValue.maxValue - sliderValue.minValue
     if let constraint = (frontImageView.constraints.filter{$0.firstAttribute == .width}.first) {
-      constraint.constant = (backImage?.size.width ?? 0) * CGFloat(slider.value) / 5
-    }
-    showNumberLabel.text = String(format: "%.1f",sender.value)
-    delegate?.ycRateViewSliderDidChange(sender: self, value: sender.value)
-    if slider.value >= 0.1 {
-      showNumberLabel.isHidden = false
-    } else {
-      showNumberLabel.isHidden = true
-    }
-    layoutIfNeeded()
-  }
-
-
-  override public func draw(_ rect: CGRect) {
-    super.draw(rect)
-    if let constraint = (frontImageView.constraints.filter{$0.firstAttribute == .width}.first) {
-      constraint.constant = (backImage?.size.width ?? 0) * CGFloat(slider.value) / 5
+      constraint.constant = (backImage?.size.width ?? 0) * CGFloat( ( value - sliderValue.minValue ) / differ) + ( ( CGFloat( value - (differ / 2) ) / 2.2 ) )
     }
     if let constraint = (backImageView.constraints.filter{$0.firstAttribute == .width}.first) {
       if let width = backImageView.image?.size.width {
@@ -112,18 +135,21 @@ public class YCRateView: UIView {
     layoutIfNeeded()
   }
 
+  override public func draw(_ rect: CGRect) {
+    super.draw(rect)
+    self.setBackImage(value: slider.value)
+  }
+
   override public func awakeFromNib() {
     super.awakeFromNib()
-    slider.maximumValue = 5.0
-    slider.minimumValue = 0.0
-    slider.value = Float(showNumberLabel.text ?? "0")!
+
     slider.maximumTrackTintColor = .clear
     slider.minimumTrackTintColor = .clear
     slider.thumbTintColor = .clear
-    slider.addTarget(self, action: #selector(sliderMove), for: .valueChanged)
 
     showNumberLabel.sizeToFit()
     showNumberLabel.numberOfLines = 0
+
   }
 
   func layout(){
@@ -206,8 +232,36 @@ public class YCRateView: UIView {
 }
 
 open class CustomSlider: UISlider {
+  private let values: [Float]
+  private var lastIndex: Int? = nil
+  let callback: (Float) -> Void
+
+  init(frame: CGRect, values: [Float] ,callback: @escaping (_ newValue: Float) -> Void) {
+    self.values = values
+    self.callback = callback
+    super.init(frame: frame)
+    self.addTarget(self, action: #selector(handleValueChange(sender:)), for: .valueChanged)
+    let steps = values.count - 1
+    self.minimumValue = 0
+    self.maximumValue = Float(steps)
+  }
+
+  required public init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
+  @objc func handleValueChange(sender: UISlider) {
+    let newIndex = Int(sender.value + 0.5) // round up to next index
+    self.setValue(Float(newIndex), animated: false) // snap to increments
+    let didChange = lastIndex == nil || newIndex != lastIndex!
+    if didChange {
+      let actualValue = self.values[newIndex]
+      self.callback(actualValue)
+    }
+  }
   override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
     return true
   }
 }
+
 

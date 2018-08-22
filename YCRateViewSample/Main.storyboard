@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="srp-UB-M4e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="srp-UB-M4e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="iF3-m9-kTo">
             <objects>
-                <viewController id="srp-UB-M4e" sceneMemberID="viewController">
+                <viewController id="srp-UB-M4e" customClass="ViewController" customModule="YCRateView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zqg-bL-VXn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,10 +22,20 @@
                                 <rect key="frame" x="131" y="318.5" width="112" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="frontImage" value="star_space_large.png"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="backImage" value="star_full_large.png"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="frontImage" value="star_space_large"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="backImage" value="star_full_large"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="max">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbQ-nW-rZV">
+                                <rect key="frame" x="43" y="84" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -34,6 +44,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tQa-8C-XIa"/>
                     </view>
+                    <connections>
+                        <outlet property="ycRateView" destination="NjU-tB-OtH" id="MbL-Ac-ahP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MMP-22-IvQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,7 +54,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="star_full_large.png" width="112" height="19"/>
-        <image name="star_space_large.png" width="112" height="19"/>
+        <image name="star_full_large" width="112" height="19"/>
+        <image name="star_space_large" width="112" height="19"/>
     </resources>
 </document>

@@ -24,16 +24,33 @@
 		2C142714BB9544F7EFF0529E /* Pods_YCRateView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F876C0A8B3D90E4114F4010D /* Pods_YCRateView.framework */; };
 		6401E46E1F67A130004AC86B /* YCRateView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6401E46C1F67A130004AC86B /* YCRateView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6401E4751F67A26B004AC86B /* YCRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6401E4741F67A26B004AC86B /* YCRateView.swift */; };
+		6483C835212D1EC1008B14BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6483C834212D1EC1008B14BA /* AppDelegate.swift */; };
+		6483C837212D1EC1008B14BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6483C836212D1EC1008B14BA /* ViewController.swift */; };
+		6483C83C212D1EC3008B14BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6483C83B212D1EC3008B14BA /* Assets.xcassets */; };
+		6483C83F212D1EC3008B14BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6483C83D212D1EC3008B14BA /* LaunchScreen.storyboard */; };
+		6483C84A212D1EC3008B14BA /* YCRateViewSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6483C849212D1EC3008B14BA /* YCRateViewSampleTests.swift */; };
+		6483C855212D1EC4008B14BA /* YCRateViewSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6483C854212D1EC4008B14BA /* YCRateViewSampleUITests.swift */; };
+		6483C861212D20D4008B14BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64929B7E1FB4064F00C725A8 /* Main.storyboard */; };
+		6483C862212D222D008B14BA /* YCRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6401E4741F67A26B004AC86B /* YCRateView.swift */; };
 		64929B7F1FB4064F00C725A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64929B7E1FB4064F00C725A8 /* Main.storyboard */; };
-		64929B8A1FB406C100C725A8 /* star_space_large@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64929B811FB406C100C725A8 /* star_space_large@3x.png */; };
-		64929B8B1FB406C100C725A8 /* star_space_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 64929B821FB406C100C725A8 /* star_space_large.png */; };
-		64929B8C1FB406C100C725A8 /* star_space_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64929B831FB406C100C725A8 /* star_space_large@2x.png */; };
-		64929B8D1FB406C100C725A8 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 64929B841FB406C100C725A8 /* Contents.json */; };
-		64929B8E1FB406C100C725A8 /* star_full_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64929B861FB406C100C725A8 /* star_full_large@2x.png */; };
-		64929B8F1FB406C100C725A8 /* star_full_large@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64929B871FB406C100C725A8 /* star_full_large@3x.png */; };
-		64929B901FB406C100C725A8 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 64929B881FB406C100C725A8 /* Contents.json */; };
-		64929B911FB406C100C725A8 /* star_full_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 64929B891FB406C100C725A8 /* star_full_large.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6483C846212D1EC3008B14BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6401E4601F67A130004AC86B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6483C831212D1EC0008B14BA;
+			remoteInfo = YCRateViewSample;
+		};
+		6483C851212D1EC4008B14BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6401E4601F67A130004AC86B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6483C831212D1EC0008B14BA;
+			remoteInfo = YCRateViewSample;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		14C79279E53483803BC59C48 /* Pods-YCRateView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YCRateView.release.xcconfig"; path = "Pods/Target Support Files/Pods-YCRateView/Pods-YCRateView.release.xcconfig"; sourceTree = "<group>"; };
@@ -41,15 +58,19 @@
 		6401E46C1F67A130004AC86B /* YCRateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCRateView.h; sourceTree = "<group>"; };
 		6401E46D1F67A130004AC86B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6401E4741F67A26B004AC86B /* YCRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YCRateView.swift; sourceTree = "<group>"; };
+		6483C832212D1EC0008B14BA /* YCRateViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YCRateViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6483C834212D1EC1008B14BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6483C836212D1EC1008B14BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6483C83B212D1EC3008B14BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6483C83E212D1EC3008B14BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6483C840212D1EC3008B14BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6483C845212D1EC3008B14BA /* YCRateViewSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YCRateViewSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6483C849212D1EC3008B14BA /* YCRateViewSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YCRateViewSampleTests.swift; sourceTree = "<group>"; };
+		6483C84B212D1EC3008B14BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6483C850212D1EC4008B14BA /* YCRateViewSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YCRateViewSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6483C854212D1EC4008B14BA /* YCRateViewSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YCRateViewSampleUITests.swift; sourceTree = "<group>"; };
+		6483C856212D1EC4008B14BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64929B7E1FB4064F00C725A8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		64929B811FB406C100C725A8 /* star_space_large@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_space_large@3x.png"; sourceTree = "<group>"; };
-		64929B821FB406C100C725A8 /* star_space_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_space_large.png; sourceTree = "<group>"; };
-		64929B831FB406C100C725A8 /* star_space_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_space_large@2x.png"; sourceTree = "<group>"; };
-		64929B841FB406C100C725A8 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
-		64929B861FB406C100C725A8 /* star_full_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_full_large@2x.png"; sourceTree = "<group>"; };
-		64929B871FB406C100C725A8 /* star_full_large@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_full_large@3x.png"; sourceTree = "<group>"; };
-		64929B881FB406C100C725A8 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
-		64929B891FB406C100C725A8 /* star_full_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_full_large.png; sourceTree = "<group>"; };
 		6DAA05178C291B37F0BC5A24 /* Pods-YCRateView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YCRateView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YCRateView/Pods-YCRateView.debug.xcconfig"; sourceTree = "<group>"; };
 		F876C0A8B3D90E4114F4010D /* Pods_YCRateView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YCRateView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -63,14 +84,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6483C82F212D1EC0008B14BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6483C842212D1EC3008B14BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6483C84D212D1EC4008B14BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		6401E45F1F67A130004AC86B = {
 			isa = PBXGroup;
 			children = (
-				64929B7B1FB405CD00C725A8 /* Example */,
 				6401E46B1F67A130004AC86B /* YCRateView */,
+				6483C833212D1EC1008B14BA /* YCRateViewSample */,
+				6483C848212D1EC3008B14BA /* YCRateViewSampleTests */,
+				6483C853212D1EC4008B14BA /* YCRateViewSampleUITests */,
 				6401E46A1F67A130004AC86B /* Products */,
 				CF63B7795C9ABEB1EC582EDE /* Pods */,
 				C40AD66874DEA036A6536714 /* Frameworks */,
@@ -81,6 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				6401E4691F67A130004AC86B /* YCRateView.framework */,
+				6483C832212D1EC0008B14BA /* YCRateViewSample.app */,
+				6483C845212D1EC3008B14BA /* YCRateViewSampleTests.xctest */,
+				6483C850212D1EC4008B14BA /* YCRateViewSampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,36 +142,35 @@
 			path = YCRateView;
 			sourceTree = "<group>";
 		};
-		64929B7B1FB405CD00C725A8 /* Example */ = {
+		6483C833212D1EC1008B14BA /* YCRateViewSample */ = {
 			isa = PBXGroup;
 			children = (
+				6483C834212D1EC1008B14BA /* AppDelegate.swift */,
+				6483C836212D1EC1008B14BA /* ViewController.swift */,
 				64929B7E1FB4064F00C725A8 /* Main.storyboard */,
-				64929B851FB406C100C725A8 /* star_full_large.imageset */,
-				64929B801FB406C100C725A8 /* star_space_large.imageset */,
+				6483C83B212D1EC3008B14BA /* Assets.xcassets */,
+				6483C83D212D1EC3008B14BA /* LaunchScreen.storyboard */,
+				6483C840212D1EC3008B14BA /* Info.plist */,
 			);
-			path = Example;
+			path = YCRateViewSample;
 			sourceTree = "<group>";
 		};
-		64929B801FB406C100C725A8 /* star_space_large.imageset */ = {
+		6483C848212D1EC3008B14BA /* YCRateViewSampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				64929B811FB406C100C725A8 /* star_space_large@3x.png */,
-				64929B821FB406C100C725A8 /* star_space_large.png */,
-				64929B831FB406C100C725A8 /* star_space_large@2x.png */,
-				64929B841FB406C100C725A8 /* Contents.json */,
+				6483C849212D1EC3008B14BA /* YCRateViewSampleTests.swift */,
+				6483C84B212D1EC3008B14BA /* Info.plist */,
 			);
-			path = star_space_large.imageset;
+			path = YCRateViewSampleTests;
 			sourceTree = "<group>";
 		};
-		64929B851FB406C100C725A8 /* star_full_large.imageset */ = {
+		6483C853212D1EC4008B14BA /* YCRateViewSampleUITests */ = {
 			isa = PBXGroup;
 			children = (
-				64929B861FB406C100C725A8 /* star_full_large@2x.png */,
-				64929B871FB406C100C725A8 /* star_full_large@3x.png */,
-				64929B881FB406C100C725A8 /* Contents.json */,
-				64929B891FB406C100C725A8 /* star_full_large.png */,
+				6483C854212D1EC4008B14BA /* YCRateViewSampleUITests.swift */,
+				6483C856212D1EC4008B14BA /* Info.plist */,
 			);
-			path = star_full_large.imageset;
+			path = YCRateViewSampleUITests;
 			sourceTree = "<group>";
 		};
 		C40AD66874DEA036A6536714 /* Frameworks */ = {
@@ -178,20 +224,91 @@
 			productReference = 6401E4691F67A130004AC86B /* YCRateView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		6483C831212D1EC0008B14BA /* YCRateViewSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6483C857212D1EC4008B14BA /* Build configuration list for PBXNativeTarget "YCRateViewSample" */;
+			buildPhases = (
+				6483C82E212D1EC0008B14BA /* Sources */,
+				6483C82F212D1EC0008B14BA /* Frameworks */,
+				6483C830212D1EC0008B14BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YCRateViewSample;
+			productName = YCRateViewSample;
+			productReference = 6483C832212D1EC0008B14BA /* YCRateViewSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6483C844212D1EC3008B14BA /* YCRateViewSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6483C85A212D1EC4008B14BA /* Build configuration list for PBXNativeTarget "YCRateViewSampleTests" */;
+			buildPhases = (
+				6483C841212D1EC3008B14BA /* Sources */,
+				6483C842212D1EC3008B14BA /* Frameworks */,
+				6483C843212D1EC3008B14BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6483C847212D1EC3008B14BA /* PBXTargetDependency */,
+			);
+			name = YCRateViewSampleTests;
+			productName = YCRateViewSampleTests;
+			productReference = 6483C845212D1EC3008B14BA /* YCRateViewSampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6483C84F212D1EC4008B14BA /* YCRateViewSampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6483C85D212D1EC4008B14BA /* Build configuration list for PBXNativeTarget "YCRateViewSampleUITests" */;
+			buildPhases = (
+				6483C84C212D1EC4008B14BA /* Sources */,
+				6483C84D212D1EC4008B14BA /* Frameworks */,
+				6483C84E212D1EC4008B14BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6483C852212D1EC4008B14BA /* PBXTargetDependency */,
+			);
+			name = YCRateViewSampleUITests;
+			productName = YCRateViewSampleUITests;
+			productReference = 6483C850212D1EC4008B14BA /* YCRateViewSampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		6401E4601F67A130004AC86B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = larvata.YC;
 				TargetAttributes = {
 					6401E4681F67A130004AC86B = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = W7P4CAWH77;
+						DevelopmentTeam = TR6HP65TF9;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+					};
+					6483C831212D1EC0008B14BA = {
+						CreatedOnToolsVersion = 9.4.1;
+						DevelopmentTeam = TR6HP65TF9;
+						ProvisioningStyle = Automatic;
+					};
+					6483C844212D1EC3008B14BA = {
+						CreatedOnToolsVersion = 9.4.1;
+						DevelopmentTeam = TR6HP65TF9;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6483C831212D1EC0008B14BA;
+					};
+					6483C84F212D1EC4008B14BA = {
+						CreatedOnToolsVersion = 9.4.1;
+						DevelopmentTeam = TR6HP65TF9;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6483C831212D1EC0008B14BA;
 					};
 					64E340B61F68BBB5005B3D01 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -206,6 +323,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 6401E45F1F67A130004AC86B;
 			productRefGroup = 6401E46A1F67A130004AC86B /* Products */;
@@ -214,6 +332,9 @@
 			targets = (
 				6401E4681F67A130004AC86B /* YCRateView */,
 				64E340B61F68BBB5005B3D01 /* UniversalYCRateView */,
+				6483C831212D1EC0008B14BA /* YCRateViewSample */,
+				6483C844212D1EC3008B14BA /* YCRateViewSampleTests */,
+				6483C84F212D1EC4008B14BA /* YCRateViewSampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -223,15 +344,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64929B8D1FB406C100C725A8 /* Contents.json in Resources */,
-				64929B8B1FB406C100C725A8 /* star_space_large.png in Resources */,
-				64929B8A1FB406C100C725A8 /* star_space_large@3x.png in Resources */,
-				64929B901FB406C100C725A8 /* Contents.json in Resources */,
-				64929B8F1FB406C100C725A8 /* star_full_large@3x.png in Resources */,
-				64929B911FB406C100C725A8 /* star_full_large.png in Resources */,
-				64929B8E1FB406C100C725A8 /* star_full_large@2x.png in Resources */,
 				64929B7F1FB4064F00C725A8 /* Main.storyboard in Resources */,
-				64929B8C1FB406C100C725A8 /* star_space_large@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6483C830212D1EC0008B14BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6483C861212D20D4008B14BA /* Main.storyboard in Resources */,
+				6483C83F212D1EC3008B14BA /* LaunchScreen.storyboard in Resources */,
+				6483C83C212D1EC3008B14BA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6483C843212D1EC3008B14BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6483C84E212D1EC4008B14BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +432,57 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6483C82E212D1EC0008B14BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6483C862212D222D008B14BA /* YCRateView.swift in Sources */,
+				6483C837212D1EC1008B14BA /* ViewController.swift in Sources */,
+				6483C835212D1EC1008B14BA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6483C841212D1EC3008B14BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6483C84A212D1EC3008B14BA /* YCRateViewSampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6483C84C212D1EC4008B14BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6483C855212D1EC4008B14BA /* YCRateViewSampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6483C847212D1EC3008B14BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6483C831212D1EC0008B14BA /* YCRateViewSample */;
+			targetProxy = 6483C846212D1EC3008B14BA /* PBXContainerItemProxy */;
+		};
+		6483C852212D1EC4008B14BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6483C831212D1EC0008B14BA /* YCRateViewSample */;
+			targetProxy = 6483C851212D1EC4008B14BA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6483C83D212D1EC3008B14BA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6483C83E212D1EC3008B14BA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6401E46F1F67A130004AC86B /* Debug */ = {
@@ -406,7 +593,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = W7P4CAWH77;
+				DEVELOPMENT_TEAM = TR6HP65TF9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -430,7 +617,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = W7P4CAWH77;
+				DEVELOPMENT_TEAM = TR6HP65TF9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -443,6 +630,186 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6483C858212D1EC4008B14BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TR6HP65TF9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = YCRateViewSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.YCFeng.YCRateViewSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6483C859212D1EC4008B14BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TR6HP65TF9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = YCRateViewSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.YCFeng.YCRateViewSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6483C85B212D1EC4008B14BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TR6HP65TF9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = YCRateViewSampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.YCFeng.YCRateViewSampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YCRateViewSample.app/YCRateViewSample";
+			};
+			name = Debug;
+		};
+		6483C85C212D1EC4008B14BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TR6HP65TF9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = YCRateViewSampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.YCFeng.YCRateViewSampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YCRateViewSample.app/YCRateViewSample";
+			};
+			name = Release;
+		};
+		6483C85E212D1EC4008B14BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TR6HP65TF9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = YCRateViewSampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.YCFeng.YCRateViewSampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YCRateViewSample;
+			};
+			name = Debug;
+		};
+		6483C85F212D1EC4008B14BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TR6HP65TF9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = YCRateViewSampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.YCFeng.YCRateViewSampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YCRateViewSample;
 			};
 			name = Release;
 		};
@@ -479,6 +846,33 @@
 			buildConfigurations = (
 				6401E4721F67A130004AC86B /* Debug */,
 				6401E4731F67A130004AC86B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6483C857212D1EC4008B14BA /* Build configuration list for PBXNativeTarget "YCRateViewSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6483C858212D1EC4008B14BA /* Debug */,
+				6483C859212D1EC4008B14BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6483C85A212D1EC4008B14BA /* Build configuration list for PBXNativeTarget "YCRateViewSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6483C85B212D1EC4008B14BA /* Debug */,
+				6483C85C212D1EC4008B14BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6483C85D212D1EC4008B14BA /* Build configuration list for PBXNativeTarget "YCRateViewSampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6483C85E212D1EC4008B14BA /* Debug */,
+				6483C85F212D1EC4008B14BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

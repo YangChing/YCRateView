@@ -8,27 +8,22 @@
 
 import UIKit
 
-public protocol YCRateViewDelegate: class {
-  func ycRateViewSliderDidChange(sender: YCRateView, value: Float)
-}
-
-class SliderValue {
-  var maxValue: Float = 5
-  var minValue: Float = 0
-  var intervalValue: Float = 0.5
-}
-
 @IBDesignable
 public class YCRateView: UIView {
 
-  public var frontImageView = UIImageView()
-  public var backImageView = UIImageView()
-  public var slider: CustomSlider!
-  public var showNumberLabel: UILabel!
-  public weak var delegate: YCRateViewDelegate?
-  public var rate: Int?
+  public class ConfigSlider {
+    var maxValue: Float = 5
+    var minValue: Float = 0
+    var intervalValue: Float = 0.5
+  }
+  public var configSlider = ConfigSlider()
+  public var curveFunc: CGFloat?
 
-  private var sliderValue = SliderValue()
+  private var frontImageView = UIImageView()
+  private var backImageView = UIImageView()
+  private var slider: CustomSlider!
+  private var showNumberLabel = UILabel()
+  private var rate: Int?
 
   @IBInspectable var frontImage: UIImage? {
     didSet {
@@ -47,12 +42,30 @@ public class YCRateView: UIView {
     }
   }
 
-  @IBInspectable var max: Float {
+  @IBInspectable var maxValue: Float {
     set {
-      self.sliderValue.maxValue = newValue
+      self.configSlider.maxValue = newValue
     }
     get {
-      return self.sliderValue.maxValue
+      return self.configSlider.maxValue
+    }
+  }
+
+  @IBInspectable var minValue: Float {
+    set {
+      self.configSlider.minValue = newValue
+    }
+    get {
+      return self.configSlider.minValue
+    }
+  }
+
+  @IBInspectable var intervalValue: Float {
+    set {
+      self.configSlider.intervalValue = newValue
+    }
+    get {
+      return self.configSlider.intervalValue
     }
   }
 
@@ -60,6 +73,22 @@ public class YCRateView: UIView {
     didSet {
       self.slider.isEnabled = isSliderEnabled
     }
+  }
+
+  public var isTextHidden: Bool = false {
+    didSet {
+      self.showNumberLabel.isHidden = isTextHidden
+    }
+  }
+
+  public var initValue: Float = 0 {
+    didSet {
+      self.slider.value = initValue
+    }
+  }
+
+  public func sliderAddTarget(target: Any?, selector: Selector, event: UIControlEvents) {
+    self.slider.addTarget(target, action: selector, for: event)
   }
 
   required public init?(coder aDecoder: NSCoder) {
@@ -73,13 +102,11 @@ public class YCRateView: UIView {
   }
 
   private func valueMaker() -> [Float] {
-    print("maxValue: \(max)")
     var values = [Float]()
-    var min = sliderValue.minValue
-    values.append(min)
-    while min < sliderValue.maxValue {
-      min += sliderValue.intervalValue
+    var min = minValue
+    while min <= maxValue {
       values.append(min)
+      min += intervalValue
     }
     return values
   }
@@ -93,15 +120,12 @@ public class YCRateView: UIView {
     backImageView.contentMode = .left
     backImageView.translatesAutoresizingMaskIntoConstraints = false
     //加入顯示的label
-    showNumberLabel = UILabel()
     showNumberLabel.font = UIFont(name: "PingFangTC", size: 15)
     showNumberLabel.textColor = UIColor(red: 186 / 255, green: 143 / 255, blue: 92 / 255, alpha: 1.0)
     showNumberLabel.translatesAutoresizingMaskIntoConstraints = false
     slider = CustomSlider.init(frame: frontImageView.frame,
-                               values: self.valueMaker(),
                                callback: { [unowned self] value in
                                 self.showNumberLabel.text = String(format: "%.1f", value)
-                                self.delegate?.ycRateViewSliderDidChange(sender: self, value: value)
                                 self.setBackImage(value: value)
 
     })
@@ -113,30 +137,27 @@ public class YCRateView: UIView {
     addSubview(slider)
     addSubview(frontImageView)
     addSubview(backImageView)
-    layout()
+    initLayout()
 
   }
 
   func setBackImage(value: Float) {
-    let differ = sliderValue.maxValue - sliderValue.minValue
-    if let constraint = (frontImageView.constraints.filter{$0.firstAttribute == .width}.first) {
-      constraint.constant = (backImage?.size.width ?? 0) * CGFloat( ( value - sliderValue.minValue ) / differ) + ( ( CGFloat( value - (differ / 2) ) / 2.2 ) )
+    let differ = maxValue - minValue
+    let midValue = ( maxValue + minValue ) / 2
+    if let constraint = (frontImageView.constraints.filter { $0.firstAttribute == .width }.first ) {
+      constraint.constant = (backImage?.size.width ?? 0) * CGFloat( ( value - minValue ) / differ) +
+        ( self.curveFunc ?? CGFloat( ( value - midValue ) / differ ) * 3 )
     }
-    if let constraint = (backImageView.constraints.filter{$0.firstAttribute == .width}.first) {
-      if let width = backImageView.image?.size.width {
-        constraint.constant = width
-      }
-    }
-    if slider.value >= 0.1 {
-      showNumberLabel.isHidden = false
-    } else {
-      showNumberLabel.isHidden = true
-    }
-    layoutIfNeeded()
+    self.setNeedsDisplay()
   }
 
   override public func draw(_ rect: CGRect) {
     super.draw(rect)
+    if let constraint = (backImageView.constraints.filter{ $0.firstAttribute == .width}.first ) {
+      if let width = backImageView.image?.size.width {
+        constraint.constant = width
+      }
+    }
     self.setBackImage(value: slider.value)
   }
 
@@ -146,31 +167,27 @@ public class YCRateView: UIView {
     slider.maximumTrackTintColor = .clear
     slider.minimumTrackTintColor = .clear
     slider.thumbTintColor = .clear
-
     showNumberLabel.sizeToFit()
+    showNumberLabel.textAlignment = .left
     showNumberLabel.numberOfLines = 0
+    slider.config(values: valueMaker())
 
   }
 
-  func layout(){
+  func initLayout(){
     let views = ["frontImageView": frontImageView,
                  "backImageView": backImageView,
                  "slider": slider,
                  "showNumberLabel": showNumberLabel] as [String : Any]
-
-
     // 2
     var allConstraints = [NSLayoutConstraint]()
-
     // 3
-
     let frontImageViewVerticalConstraints = NSLayoutConstraint.constraints(
       withVisualFormat: "V:|[backImageView]|",
       options: [.alignAllCenterY],
       metrics: nil,
       views: views)
     allConstraints += frontImageViewVerticalConstraints
-
     // 4
     let backImageViewVerticalConstraints = NSLayoutConstraint.constraints(
       withVisualFormat: "V:|[frontImageView]|",
@@ -178,8 +195,6 @@ public class YCRateView: UIView {
       metrics: nil,
       views: views)
     allConstraints += backImageViewVerticalConstraints
-
-
     // 5
     let sliderVerticalConstraints = NSLayoutConstraint.constraints(
       withVisualFormat: "V:|[slider]|",
@@ -187,21 +202,18 @@ public class YCRateView: UIView {
       metrics: nil,
       views: views)
     allConstraints += sliderVerticalConstraints
-
     let showNumberLabelVerticalConstraints = NSLayoutConstraint.constraints(
       withVisualFormat: "V:|[showNumberLabel]|",
       options: [.alignAllCenterY],
       metrics: nil,
       views: views)
     allConstraints += showNumberLabelVerticalConstraints
-
     let frontImageViewHorizontalConstraints = NSLayoutConstraint.constraints(
       withVisualFormat: "H:|[backImageView]|",
       options: [.alignAllCenterX],
       metrics: nil,
       views: views)
     allConstraints += frontImageViewHorizontalConstraints
-
     // 4
     let backImageViewHorizontalConstraints = NSLayoutConstraint.constraints(
       withVisualFormat: "H:|[frontImageView(<=backImageView)]",
@@ -209,7 +221,6 @@ public class YCRateView: UIView {
       metrics: nil,
       views: views)
     allConstraints += backImageViewHorizontalConstraints
-
     // 5
     let sliderHorizontalConstraints = NSLayoutConstraint.constraints(
       withVisualFormat: "H:|[slider]|",
@@ -231,19 +242,23 @@ public class YCRateView: UIView {
 
 }
 
-open class CustomSlider: UISlider {
-  private let values: [Float]
+public class CustomSlider: UISlider {
+  private var values: [Float] = [0, 0.5 , 1]
   private var lastIndex: Int? = nil
+  private var intervalNumber: Float = 0.5
   let callback: (Float) -> Void
 
-  init(frame: CGRect, values: [Float] ,callback: @escaping (_ newValue: Float) -> Void) {
-    self.values = values
+  init(frame: CGRect ,callback: @escaping (_ newValue: Float) -> Void) {
     self.callback = callback
     super.init(frame: frame)
     self.addTarget(self, action: #selector(handleValueChange(sender:)), for: .valueChanged)
-    let steps = values.count - 1
-    self.minimumValue = 0
-    self.maximumValue = Float(steps)
+    config(values: values)
+  }
+
+  public func config(values: [Float]) {
+    self.values = values
+    self.minimumValue = self.values.first!
+    self.maximumValue = self.values.last!
   }
 
   required public init?(coder aDecoder: NSCoder) {
@@ -251,17 +266,42 @@ open class CustomSlider: UISlider {
   }
 
   @objc func handleValueChange(sender: UISlider) {
-    let newIndex = Int(sender.value + 0.5) // round up to next index
-    self.setValue(Float(newIndex), animated: false) // snap to increments
+    let point = closeValue(trueValue: sender.value)
+    let newIndex = point.closeIndex  // round up to next index
+    self.setValue(point.closeValue, animated: false) // snap to increments
     let didChange = lastIndex == nil || newIndex != lastIndex!
     if didChange {
       let actualValue = self.values[newIndex]
       self.callback(actualValue)
     }
   }
+
+  private func closeValue(trueValue: Float) -> Point {
+    var closeIndex: Int = 0
+    var closeValue = values[closeIndex]
+    for (index, value) in values.enumerated() {
+      if (closeValue - trueValue).magnitude > (trueValue - value).magnitude {
+        closeIndex = index
+        closeValue = values[index]
+      }
+    }
+    let point = Point()
+    point.closeIndex = closeIndex
+    point.closeValue = closeValue
+    return point
+  }
+
+  private class Point {
+    var closeIndex: Int = 0
+    var closeValue: Float = 0
+  }
+
+
   override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
     return true
   }
 }
+
+
 
 

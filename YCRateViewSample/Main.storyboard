@@ -22,20 +22,13 @@
                                 <rect key="frame" x="131" y="318.5" width="112" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="frontImage" value="star_space_large"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="backImage" value="star_full_large"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="frontImage" value="star_full_large"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="backImage" value="star_space_large"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="max">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbQ-nW-rZV">
-                                <rect key="frame" x="43" y="84" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>

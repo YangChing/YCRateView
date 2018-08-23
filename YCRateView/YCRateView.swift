@@ -87,6 +87,10 @@ public class YCRateView: UIView {
     }
   }
 
+  public func getSliderValue() -> Float {
+    return self.slider.value
+  }
+
   public func sliderAddTarget(target: Any?, selector: Selector, event: UIControlEvents) {
     self.slider.addTarget(target, action: selector, for: event)
   }

@@ -145,8 +145,9 @@ public class YCRateView: UIView {
     let differ = maxValue - minValue
     let midValue = ( maxValue + minValue ) / 2
     if let constraint = (frontImageView.constraints.filter { $0.firstAttribute == .width }.first ) {
-      constraint.constant = (backImage?.size.width ?? 0) * CGFloat( ( value - minValue ) / differ) +
+      let newConstraint = (backImage?.size.width ?? 0) * CGFloat( ( value - minValue ) / differ) +
         ( self.curveFunc ?? CGFloat( ( value - midValue ) / differ ) * 3 )
+      constraint.constant = newConstraint > backImageView.frame.width ? backImageView.frame.width : newConstraint
     }
     self.setNeedsDisplay()
   }

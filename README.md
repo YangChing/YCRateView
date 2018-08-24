@@ -1,16 +1,29 @@
-# YCRateView
-A rate view slider.
+# YCReteView
 
-# install
+[![CI Status](https://img.shields.io/travis/stormy.petrel@msa.hinet.net/YCReteView.svg?style=flat)](https://travis-ci.org/stormy.petrel@msa.hinet.net/YCReteView)
+[![Version](https://img.shields.io/cocoapods/v/YCReteView.svg?style=flat)](https://cocoapods.org/pods/YCReteView)
+[![License](https://img.shields.io/cocoapods/l/YCReteView.svg?style=flat)](https://cocoapods.org/pods/YCReteView)
+[![Platform](https://img.shields.io/cocoapods/p/YCReteView.svg?style=flat)](https://cocoapods.org/pods/YCReteView)
 
-pod 'YCRateView', :git => 'https://github.com/YangChing/YCRateView', :tag => '1.0.8'
+## Example
 
-# How to use
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-1.在 storyboard 內加入 UIView 
+## Requirements
 
-2.在 class 的地方選擇 YCRateView
+## Installation
 
-3.在 show the attributes inspector(平常選顏色的那欄位)內可以選擇 front view 跟 back view
+YCReteView is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
 
-4.front view 代表空星星 back view 用滿星星代替
+```ruby
+pod 'YCReteView'
+```
+
+## Author
+
+stormy.petrel@msa.hinet.net, stormy.petrel@msa.hinet.net
+
+## License
+
+YCReteView is available under the MIT license. See the LICENSE file for more info.

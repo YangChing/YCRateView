@@ -1,0 +1,16 @@
+PODS:
+  - YCReteView (0.1.0)
+
+DEPENDENCIES:
+  - YCReteView (from `../`)
+
+EXTERNAL SOURCES:
+  YCReteView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  YCReteView: 3641701863781cc39d96c399dc25182eedbd86c4
+
+PODFILE CHECKSUM: 100c9df1a9d7c7ec71a13cf735c9738e5116f5fc
+
+COCOAPODS: 1.4.0

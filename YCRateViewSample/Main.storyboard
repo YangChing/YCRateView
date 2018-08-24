@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NjU-tB-OtH" customClass="YCRateView" customModule="YCRateView" customModuleProvider="target">
-                                <rect key="frame" x="131" y="318.5" width="112" height="30"/>
+                                <rect key="frame" x="139" y="318.5" width="96" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="frontImage" value="star_full_large"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="backImage" value="star_space_large"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="frontImage" value="1-Copy-3"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="backImage" value="1-Copy-2"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="max">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
@@ -47,7 +46,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="star_full_large" width="112" height="19"/>
-        <image name="star_space_large" width="112" height="19"/>
+        <image name="1-Copy-2" width="96" height="20"/>
+        <image name="1-Copy-3" width="96" height="20"/>
     </resources>
 </document>

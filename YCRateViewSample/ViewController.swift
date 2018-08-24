@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     ycRateView.initValue = 3
     ycRateView.isTextHidden = false
     ycRateView.isSliderEnabled = true
+    ycRateView.textSize = 20
     // Do any additional setup after loading the view, typically from a nib.
     ycRateView.sliderAddTarget(target: self, selector: #selector(doSomething), event: .valueChanged)
   }

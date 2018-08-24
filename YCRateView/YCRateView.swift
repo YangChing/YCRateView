@@ -17,7 +17,7 @@ public class YCRateView: UIView {
     var intervalValue: Float = 0.5
   }
   public var configSlider = ConfigSlider()
-  public var curveFunc: CGFloat?
+  public var beta: CGFloat?
 
   private var frontImageView = UIImageView()
   private var backImageView = UIImageView()
@@ -88,6 +88,12 @@ public class YCRateView: UIView {
     }
   }
 
+  public var textSize: CGFloat = 15 {
+    didSet {
+      self.showNumberLabel.font = self.showNumberLabel.font.withSize(textSize)
+    }
+  }
+
   public func getSliderValue() -> Float {
     return self.slider.value
   }
@@ -148,10 +154,10 @@ public class YCRateView: UIView {
 
   func setBackImage(value: Float) {
     let differ = maxValue - minValue
-    let midValue = ( maxValue + minValue ) / 2
     if let constraint = (frontImageView.constraints.filter { $0.firstAttribute == .width }.first ) {
       let newConstraint = (backImage?.size.width ?? 0) * CGFloat( ( value - minValue ) / differ) +
-        ( self.curveFunc ?? CGFloat( ( value - midValue ) / differ ) * 3 )
+        ( self.beta ?? 0 )
+//      CGFloat( ( value - midValue ) / differ ) * 3
       constraint.constant = newConstraint > backImageView.frame.width ? backImageView.frame.width : newConstraint
     }
     self.setNeedsDisplay()
@@ -176,6 +182,7 @@ public class YCRateView: UIView {
     showNumberLabel.sizeToFit()
     showNumberLabel.textAlignment = .left
     showNumberLabel.numberOfLines = 0
+
     slider.config(values: valueMaker())
 
   }

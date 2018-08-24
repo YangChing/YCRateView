@@ -84,6 +84,7 @@ public class YCRateView: UIView {
   public var initValue: Float = 0 {
     didSet {
       self.slider.value = initValue
+      self.showNumberLabel.text = "\(initValue)"
     }
   }
 

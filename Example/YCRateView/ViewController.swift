@@ -21,9 +21,7 @@ class ViewController: UIViewController {
       ycRateView.textSize = 20
       // Do any additional setup after loading the view, typically from a nib.
       ycRateView.sliderAddTarget(target: self, selector: #selector(doSomething), event: .valueChanged)
-      ycRateView.rateViewChanged = { slider, _, _, textLabel in
-        textLabel.isHidden = slider.value < 0.09
-      }
+
 
   }
 
@@ -38,3 +36,9 @@ class ViewController: UIViewController {
 
 }
 
+
+extension YCRateView {
+  public func rateViewChanged(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel) {
+    text.isHidden = slider.value < 0.09
+  }
+}

@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol YCRateViewCustomizable {
+public protocol YCRateViewCustomizable {
   func rateViewChanged(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel)
   func rateViewDidLoad(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel)
 }
 
 extension YCRateViewCustomizable {
-  func rateViewChanged(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel) {}
-  func rateViewDidLoad(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel) {}
+  public func rateViewChanged(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel) {}
+  public func rateViewDidLoad(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel) {}
 }
 
 @IBDesignable

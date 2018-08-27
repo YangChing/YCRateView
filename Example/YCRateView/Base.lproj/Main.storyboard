@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JXF-cb-bRG">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="4Kf-i5-tMj">
+            <objects>
+                <viewController id="JXF-cb-bRG" customClass="ViewController" customModule="YCRateView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jXI-ix-VKR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ymf-L9-oTg" customClass="YCRateView" customModule="YCRateView">
+                                <rect key="frame" x="139" y="318.5" width="96" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="frontImage" value="1-Copy-3"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="backImage" value="1-Copy-2"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ymf-L9-oTg" firstAttribute="centerX" secondItem="jXI-ix-VKR" secondAttribute="centerX" id="aYm-xw-g4B"/>
+                            <constraint firstItem="Ymf-L9-oTg" firstAttribute="centerY" secondItem="jXI-ix-VKR" secondAttribute="centerY" id="sQg-T1-YHL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7my-G1-BpR"/>
+                    </view>
+                    <connections>
+                        <outlet property="ycRateView" destination="Ymf-L9-oTg" id="2Gv-3B-JaZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7U3-7i-rew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-18" y="-13"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1-Copy-2" width="96" height="20"/>
+        <image name="1-Copy-3" width="96" height="20"/>
+    </resources>
+</document>

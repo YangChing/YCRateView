@@ -1,6 +1,0 @@
-framework module YCReteView {
-  umbrella header "YCReteView-umbrella.h"
-
-  export *
-  module * { export * }
-}

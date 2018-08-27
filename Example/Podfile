@@ -1,12 +1,11 @@
 use_frameworks!
 
-target 'YCReteView_Example' do
-  pod 'YCReteView', :path => '../'
+target 'YCRateView_Example' do
+  pod 'YCRateView', :path => '../'
 
-  target 'YCReteView_Tests' do
+  target 'YCRateView_Tests' do
     inherit! :search_paths
 
     
   end
 end
-

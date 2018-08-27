@@ -8,8 +8,18 @@
 
 import UIKit
 
+protocol YCRateViewCustomizable {
+  func rateViewChanged(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel)
+  func rateViewDidLoad(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel)
+}
+
+extension YCRateViewCustomizable {
+  func rateViewChanged(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel) {}
+  func rateViewDidLoad(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel) {}
+}
+
 @IBDesignable
-public class YCRateView: UIView {
+public class YCRateView: UIView, YCRateViewCustomizable {
 
   public class ConfigSlider {
     var maxValue: Float = 5
@@ -18,8 +28,7 @@ public class YCRateView: UIView {
   }
 
   public var beta: CGFloat?
-  public var rateViewChanged: ((CustomSlider, UIImageView, UIImageView, UILabel) -> ())?
-  public var rateViewDidLoad: ((CustomSlider, UIImageView, UIImageView, UILabel) -> ())?
+
 
   private var configSlider = ConfigSlider()
   private var frontImageView = UIImageView()
@@ -163,9 +172,7 @@ public class YCRateView: UIView {
 //      CGFloat( ( value - midValue ) / differ ) * 3
       constraint.constant = newConstraint > backImageView.frame.width ? backImageView.frame.width : newConstraint
     }
-    if let valueChange = rateViewChanged {
-      valueChange(slider, frontImageView, backImageView, showNumberLabel)
-    }
+    self.rateViewChanged(slider: slider, frontImgView: frontImageView, backImgView: backImageView, text: showNumberLabel)
     self.setNeedsDisplay()
   }
 
@@ -177,9 +184,7 @@ public class YCRateView: UIView {
       }
     }
     self.setBackImage(value: slider.value)
-    if let rateViewDidLoad = rateViewDidLoad {
-      rateViewDidLoad(slider, frontImageView, backImageView, showNumberLabel)
-    }
+    self.rateViewDidLoad(slider: slider, frontImgView: frontImageView, backImgView: backImageView, text: showNumberLabel)
   }
 
   override public func awakeFromNib() {

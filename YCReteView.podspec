@@ -8,27 +8,25 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YCReteView'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of YCReteView.'
-
+  s.version          = '1.1.3'
+  s.summary          = 'A rate view slider.'
+  s.swift_version    = '3'
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = 'Use image to change the rate view'
 
-  s.homepage         = 'https://github.com/stormy.petrel@msa.hinet.net/YCReteView'
+  s.homepage         = 'https://github.com/YangChing/YCRateView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'stormy.petrel@msa.hinet.net' => 'stormy.petrel@msa.hinet.net' }
-  s.source           = { :git => 'https://github.com/stormy.petrel@msa.hinet.net/YCReteView.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/YangChing/YCRateView.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'YCReteView/Classes/**/*'
   

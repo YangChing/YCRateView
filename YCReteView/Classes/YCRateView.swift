@@ -16,9 +16,12 @@ public class YCRateView: UIView {
     var minValue: Float = 0
     var intervalValue: Float = 0.5
   }
-  public var configSlider = ConfigSlider()
-  public var beta: CGFloat?
 
+  public var beta: CGFloat?
+  public var rateViewChanged: ((CustomSlider, UIImageView, UIImageView, UILabel) -> ())?
+  public var rateViewDidLoad: ((CustomSlider, UIImageView, UIImageView, UILabel) -> ())?
+
+  private var configSlider = ConfigSlider()
   private var frontImageView = UIImageView()
   private var backImageView = UIImageView()
   private var slider: CustomSlider!
@@ -160,6 +163,9 @@ public class YCRateView: UIView {
 //      CGFloat( ( value - midValue ) / differ ) * 3
       constraint.constant = newConstraint > backImageView.frame.width ? backImageView.frame.width : newConstraint
     }
+    if let valueChange = rateViewChanged {
+      valueChange(slider, frontImageView, backImageView, showNumberLabel)
+    }
     self.setNeedsDisplay()
   }
 
@@ -171,6 +177,9 @@ public class YCRateView: UIView {
       }
     }
     self.setBackImage(value: slider.value)
+    if let rateViewDidLoad = rateViewDidLoad {
+      rateViewDidLoad(slider, frontImageView, backImageView, showNumberLabel)
+    }
   }
 
   override public func awakeFromNib() {

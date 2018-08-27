@@ -5,11 +5,17 @@
 [![License](https://img.shields.io/cocoapods/l/YCReteView.svg?style=flat)](https://cocoapods.org/pods/YCReteView)
 [![Platform](https://img.shields.io/cocoapods/p/YCReteView.svg?style=flat)](https://cocoapods.org/pods/YCReteView)
 
+A Rate View 
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+## Uasge
+
+1. Add UIImageView in Storyboard
+2. Set class as YCRateView
+3. Choose Front Image and Back Image
 
 ## Installation
 
@@ -22,7 +28,7 @@ pod 'YCReteView'
 
 ## Author
 
-stormy.petrel@msa.hinet.net, stormy.petrel@msa.hinet.net
+YangChing
 
 ## License
 

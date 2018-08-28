@@ -15,19 +15,13 @@ public class YCRateView: UIView {
     var maxValue: Float = 5
     var minValue: Float = 0
     var intervalValue: Float = 0.5
-    var isHiddenZero = false
+    var isHiddenMin = false
   }
 
-  public class ConfigImage {
-    var frontImage: UIImage?
-    var backImage: UIImage?
-  }
-
-  public var configImage = ConfigImage()
-  public var rateViewChanged: ((_ slider: CustomSlider, _ frontImgView: UIImageView, _ backImgView: UIImageView, _ text: UILabel) -> ())?
-  public var beta: CGFloat?
-  public var frontImageView = UIImageView()
-  public var backImageView = UIImageView()
+  public var yc_RateViewChanged: ((_ slider: CustomSlider, _ frontImgView: UIImageView, _ backImgView: UIImageView, _ text: UILabel) -> ())?
+  public var yc_Beta: CGFloat?
+  public var yc_FrontImageView = UIImageView()
+  public var yc_BackImageView = UIImageView()
 
 
   private var configSlider = ConfigSlider()
@@ -38,12 +32,12 @@ public class YCRateView: UIView {
 
   @IBInspectable var frontImage: UIImage? {
     didSet {
-      frontImageView.image = frontImage
+      yc_FrontImageView.image = frontImage
     }
   }
   @IBInspectable var backImage: UIImage? {
     didSet {
-      backImageView.image = backImage
+      yc_BackImageView.image = backImage
     }
   }
 
@@ -80,37 +74,43 @@ public class YCRateView: UIView {
     }
   }
 
-  @IBInspectable var isHiddenZero: Bool {
+  @IBInspectable var isHiddenMin: Bool {
     set {
-      self.configSlider.isHiddenZero = newValue
+      self.configSlider.isHiddenMin = newValue
     }
     get {
-      return configSlider.isHiddenZero
+      return configSlider.isHiddenMin
     }
   }
 
-  public var isSliderEnabled: Bool = false {
+  public var yc_IsSliderEnabled: Bool = false {
     didSet {
-      self.slider.isEnabled = isSliderEnabled
+      self.slider.isEnabled = yc_IsSliderEnabled
     }
   }
 
-  public var isTextHidden: Bool = false {
+  public var yc_IsTextHidden: Bool = false {
     didSet {
-      self.showNumberLabel.isHidden = isTextHidden
+      self.showNumberLabel.isHidden = yc_IsTextHidden
     }
   }
 
-  public var initValue: Float = 0 {
+  public var yc_InitValue: Float = 0 {
     didSet {
-      self.slider.value = initValue
-      self.showNumberLabel.text = "\(initValue)"
+      self.slider.value = yc_InitValue
+      self.showNumberLabel.text = "\(yc_InitValue)"
     }
   }
 
-  public var textSize: CGFloat = 15 {
+  public var yc_TextSize: CGFloat = 15 {
     didSet {
-      self.showNumberLabel.font = self.showNumberLabel.font.withSize(textSize)
+      self.showNumberLabel.font = self.showNumberLabel.font.withSize(yc_TextSize)
+    }
+  }
+
+  public var yc_TextColor: UIColor = UIColor(red: 186 / 255, green: 143 / 255, blue: 92 / 255, alpha: 1.0) {
+    didSet {
+      self.showNumberLabel.textColor = yc_TextColor
     }
   }
 
@@ -144,21 +144,21 @@ public class YCRateView: UIView {
 
   private func createSubviews() {
     //加入上層畫面
-    frontImageView.contentMode = .left
-    frontImageView.clipsToBounds = true
-    frontImageView.translatesAutoresizingMaskIntoConstraints = false
+    yc_FrontImageView.contentMode = .left
+    yc_FrontImageView.clipsToBounds = true
+    yc_FrontImageView.translatesAutoresizingMaskIntoConstraints = false
     //加入下層畫面
-    backImageView.contentMode = .left
-    backImageView.translatesAutoresizingMaskIntoConstraints = false
+    yc_BackImageView.contentMode = .left
+    yc_BackImageView.translatesAutoresizingMaskIntoConstraints = false
     //加入顯示的label
     showNumberLabel.font = UIFont(name: "PingFangTC", size: 15)
     showNumberLabel.textColor = UIColor(red: 186 / 255, green: 143 / 255, blue: 92 / 255, alpha: 1.0)
     showNumberLabel.translatesAutoresizingMaskIntoConstraints = false
-    slider = CustomSlider.init(frame: frontImageView.frame,
+    slider = CustomSlider.init(frame: yc_FrontImageView.frame,
                                callback: { [unowned self] value in
                                 self.showNumberLabel.text = String(format: "%.1f", value)
-                                if let rateViewChanged = self.rateViewChanged {
-                                  rateViewChanged(self.slider, self.frontImageView, self.backImageView, self.showNumberLabel)
+                                if let rateViewChanged = self.yc_RateViewChanged {
+                                  rateViewChanged(self.slider, self.yc_FrontImageView, self.yc_BackImageView, self.showNumberLabel)
                                 }
                                 self.setBackImage(value: value)
 
@@ -167,31 +167,30 @@ public class YCRateView: UIView {
     slider.isEnabled = false
     addSubview(showNumberLabel)
     addSubview(slider)
-    addSubview(frontImageView)
-    addSubview(backImageView)
+    addSubview(yc_FrontImageView)
+    addSubview(yc_BackImageView)
     initLayout()
 
   }
 
   func setBackImage(value: Float) {
     let differ = maxValue - minValue
-    if let constraint = (frontImageView.constraints.filter { $0.firstAttribute == .width }.first ) {
+    if let constraint = (yc_FrontImageView.constraints.filter { $0.firstAttribute == .width }.first ) {
       let newConstraint = (backImage?.size.width ?? 0) * CGFloat( ( value - minValue ) / differ) +
-        ( self.beta ?? 0 )
+        ( self.yc_Beta ?? 0 )
 //      CGFloat( ( value - midValue ) / differ ) * 3
-      constraint.constant = newConstraint > backImageView.frame.width ? backImageView.frame.width : newConstraint
-      print(constraint.constant)
+      constraint.constant = newConstraint > yc_BackImageView.frame.width ? yc_BackImageView.frame.width : newConstraint
     }
     self.setNeedsDisplay()
   }
 
   override public func draw(_ rect: CGRect) {
     super.draw(rect)
-    if isHiddenZero {
-      self.showNumberLabel.isHidden = slider.value <= 0
+    if isHiddenMin {
+      self.showNumberLabel.isHidden = slider.value <= self.configSlider.minValue
     }
-    if let constraint = (backImageView.constraints.filter{ $0.firstAttribute == .width}.first ) {
-      if let width = backImageView.image?.size.width {
+    if let constraint = (yc_BackImageView.constraints.filter{ $0.firstAttribute == .width}.first ) {
+      if let width = yc_BackImageView.image?.size.width {
         constraint.constant = width
       }
     }
@@ -214,8 +213,8 @@ public class YCRateView: UIView {
   }
 
   func initLayout(){
-    let views = ["frontImageView": frontImageView,
-                 "backImageView": backImageView,
+    let views = ["frontImageView": yc_FrontImageView,
+                 "backImageView": yc_BackImageView,
                  "slider": slider,
                  "showNumberLabel": showNumberLabel] as [String : Any]
     // 2

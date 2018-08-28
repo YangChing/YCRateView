@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ymf-L9-oTg" customClass="YCRateView" customModule="YCRateView">
-                                <rect key="frame" x="139" y="318.5" width="96" height="30"/>
+                                <rect key="frame" x="138" y="318.5" width="98" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="frontImage" value="1-Copy-3"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="backImage" value="1-Copy-2"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="frontImage" value="gold_star_full"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="backImage" value="gold_star_space"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenZero" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -45,7 +45,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1-Copy-2" width="96" height="20"/>
-        <image name="1-Copy-3" width="96" height="20"/>
+        <image name="gold_star_full" width="98" height="20"/>
+        <image name="gold_star_space" width="98" height="20"/>
     </resources>
 </document>

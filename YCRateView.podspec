@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YCRateView'
-  s.version          = '1.1.6'
+  s.version          = '1.1.7'
   s.summary          = 'A rate view slider.'
   s.swift_version    = '3'
 # This description is used to generate tags and improve search results.
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/YangChing/YCRateView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'stormy.petrel@msa.hinet.net' => 'stormy.petrel@msa.hinet.net' }
+  s.author           = { 'stormy.petrel@msa.hinet.net' => 'YangChing' }
   s.source           = { :git => 'https://github.com/YangChing/YCRateView.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 

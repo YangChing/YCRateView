@@ -22,15 +22,15 @@ class ViewController: UIViewController {
       // Do any additional setup after loading the view, typically from a nib.
       ycRateView.sliderAddTarget(target: self, selector: #selector(doSomething), event: .valueChanged)
       // add call back
-      ycRateView.frontImageView.image = #imageLiteral(resourceName: "star_full_4")
-      ycRateView.backImageView.image = #imageLiteral(resourceName: "star_space_4")
+      ycRateView.frontImageView.image = #imageLiteral(resourceName: "gray_star_full")
+      ycRateView.backImageView.image = #imageLiteral(resourceName: "gray_star_space")
       ycRateView.rateViewChanged = { slider, frontImageView, backImageView, text in
         if slider.value <= 2.5 {
-          backImageView.image = #imageLiteral(resourceName: "star_space_4")
-          frontImageView.image = #imageLiteral(resourceName: "star_full_4")
+          backImageView.image = #imageLiteral(resourceName: "gray_star_space")
+          frontImageView.image = #imageLiteral(resourceName: "gray_star_full")
         } else {
-          backImageView.image = #imageLiteral(resourceName: "star_space")
-          frontImageView.image = #imageLiteral(resourceName: "star_full")
+          backImageView.image = #imageLiteral(resourceName: "gold_star_space")
+          frontImageView.image = #imageLiteral(resourceName: "gold_star_full")
         }
       }
   }

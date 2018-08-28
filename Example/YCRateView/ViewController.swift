@@ -15,14 +15,24 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
       super.viewDidLoad()
-      ycRateView.initValue = 3
+      ycRateView.initValue = 2
       ycRateView.isTextHidden = false
       ycRateView.isSliderEnabled = true
       ycRateView.textSize = 20
       // Do any additional setup after loading the view, typically from a nib.
       ycRateView.sliderAddTarget(target: self, selector: #selector(doSomething), event: .valueChanged)
-
-
+      // add call back
+      ycRateView.frontImageView.image = #imageLiteral(resourceName: "star_full_4")
+      ycRateView.backImageView.image = #imageLiteral(resourceName: "star_space_4")
+      ycRateView.rateViewChanged = { slider, frontImageView, backImageView, text in
+        if slider.value <= 2.5 {
+          backImageView.image = #imageLiteral(resourceName: "star_space_4")
+          frontImageView.image = #imageLiteral(resourceName: "star_full_4")
+        } else {
+          backImageView.image = #imageLiteral(resourceName: "star_space")
+          frontImageView.image = #imageLiteral(resourceName: "star_full")
+        }
+      }
   }
 
   @objc func doSomething(sender: UISlider) {
@@ -36,9 +46,3 @@ class ViewController: UIViewController {
 
 }
 
-
-extension YCRateView {
-  public func rateViewChanged(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel) {
-    text.isHidden = slider.value < 0.09
-  }
-}

@@ -9,6 +9,15 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+## Installation
+
+YCRateView is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'YCRateView'
+```
+
 ## Uasge
 
 1. Add UIImageView in Storyboard
@@ -20,23 +29,14 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 <img src="https://github.com/YangChing/YCRateView/blob/1.1.6/Image/init_setting.png" />
 
-frontImage
+Front Image
 
 <img src="https://github.com/YangChing/YCRateView/blob/master/Example/YCRateView/Images.xcassets/1-Copy-2.imageset/1-Copy-2%403x.png" />
 
-backImage
+Back Image
 
 <img src="https://github.com/YangChing/YCRateView/blob/master/Example/YCRateView/Images.xcassets/1-Copy-3.imageset/1-Copy-3%403x.png" />
 
-
-## Installation
-
-YCRateView is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'YCRateView'
-```
 
 ## Author
 

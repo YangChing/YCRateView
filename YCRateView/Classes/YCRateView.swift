@@ -8,34 +8,33 @@
 
 import UIKit
 
-public protocol YCRateViewCustomizable {
-  func rateViewChanged(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel)
-  func rateViewDidLoad(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel)
-}
-
-extension YCRateViewCustomizable {
-  public func rateViewChanged(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel) {}
-  public func rateViewDidLoad(slider: CustomSlider, frontImgView: UIImageView, backImgView: UIImageView, text: UILabel) {}
-}
-
 @IBDesignable
-public class YCRateView: UIView, YCRateViewCustomizable {
+public class YCRateView: UIView {
 
   public class ConfigSlider {
     var maxValue: Float = 5
     var minValue: Float = 0
     var intervalValue: Float = 0.5
+    var isHiddenZero = false
   }
 
+  public class ConfigImage {
+    var frontImage: UIImage?
+    var backImage: UIImage?
+  }
+
+  public var configImage = ConfigImage()
+  public var rateViewChanged: ((_ slider: CustomSlider, _ frontImgView: UIImageView, _ backImgView: UIImageView, _ text: UILabel) -> ())?
   public var beta: CGFloat?
+  public var frontImageView = UIImageView()
+  public var backImageView = UIImageView()
 
 
   private var configSlider = ConfigSlider()
-  private var frontImageView = UIImageView()
-  private var backImageView = UIImageView()
   private var slider: CustomSlider!
   private var showNumberLabel = UILabel()
   private var rate: Int?
+
 
   @IBInspectable var frontImage: UIImage? {
     didSet {
@@ -78,6 +77,15 @@ public class YCRateView: UIView, YCRateViewCustomizable {
     }
     get {
       return self.configSlider.intervalValue
+    }
+  }
+
+  @IBInspectable var isHiddenZero: Bool {
+    set {
+      self.configSlider.isHiddenZero = newValue
+    }
+    get {
+      return configSlider.isHiddenZero
     }
   }
 
@@ -149,13 +157,14 @@ public class YCRateView: UIView, YCRateViewCustomizable {
     slider = CustomSlider.init(frame: frontImageView.frame,
                                callback: { [unowned self] value in
                                 self.showNumberLabel.text = String(format: "%.1f", value)
+                                if let rateViewChanged = self.rateViewChanged {
+                                  rateViewChanged(self.slider, self.frontImageView, self.backImageView, self.showNumberLabel)
+                                }
                                 self.setBackImage(value: value)
 
     })
     slider.translatesAutoresizingMaskIntoConstraints = false
     slider.isEnabled = false
-
-
     addSubview(showNumberLabel)
     addSubview(slider)
     addSubview(frontImageView)
@@ -171,20 +180,22 @@ public class YCRateView: UIView, YCRateViewCustomizable {
         ( self.beta ?? 0 )
 //      CGFloat( ( value - midValue ) / differ ) * 3
       constraint.constant = newConstraint > backImageView.frame.width ? backImageView.frame.width : newConstraint
+      print(constraint.constant)
     }
-    self.rateViewChanged(slider: slider, frontImgView: frontImageView, backImgView: backImageView, text: showNumberLabel)
     self.setNeedsDisplay()
   }
 
   override public func draw(_ rect: CGRect) {
     super.draw(rect)
+    if isHiddenZero {
+      self.showNumberLabel.isHidden = slider.value <= 0
+    }
     if let constraint = (backImageView.constraints.filter{ $0.firstAttribute == .width}.first ) {
       if let width = backImageView.image?.size.width {
         constraint.constant = width
       }
     }
     self.setBackImage(value: slider.value)
-    self.rateViewDidLoad(slider: slider, frontImgView: frontImageView, backImgView: backImageView, text: showNumberLabel)
   }
 
   override public func awakeFromNib() {
@@ -196,6 +207,7 @@ public class YCRateView: UIView, YCRateViewCustomizable {
     showNumberLabel.sizeToFit()
     showNumberLabel.textAlignment = .left
     showNumberLabel.numberOfLines = 0
+
 
     slider.config(values: valueMaker())
 

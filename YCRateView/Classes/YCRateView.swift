@@ -178,7 +178,6 @@ public class YCRateView: UIView {
     if let constraint = (yc_FrontImageView.constraints.filter { $0.firstAttribute == .width }.first ) {
       let newConstraint = (backImage?.size.width ?? 0) * CGFloat( ( value - minValue ) / differ) +
         ( self.yc_Beta ?? 0 )
-//      CGFloat( ( value - midValue ) / differ ) * 3
       constraint.constant = newConstraint > yc_BackImageView.frame.width ? yc_BackImageView.frame.width : newConstraint
     }
     self.setNeedsDisplay()

@@ -205,8 +205,6 @@ public class YCRateView: UIView {
     showNumberLabel.sizeToFit()
     showNumberLabel.textAlignment = .left
     showNumberLabel.numberOfLines = 0
-
-
     slider.config(values: valueMaker())
 
   }

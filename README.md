@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/YCRateView.svg?style=flat)](https://cocoapods.org/pods/YCRateView)
 [![Platform](https://img.shields.io/cocoapods/p/YCRateView.svg?style=flat)](https://cocoapods.org/pods/YCRateView)
 
+## Sample
+
+<img src="https://github.com/YangChing/YCRateView/blob/master/Image/animation.gif" />
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -20,8 +24,11 @@ pod 'YCRateView'
 
 ## Usage
 
-1. Add UIImageView in Storyboard
+1. Add UIImageView in Storyboard. 
 2. Set class YCRateView
+
+Default Value:
+max: 5, min: 0, interval: 0.5
 
  <img src="https://github.com/YangChing/YCRateView/blob/master/Image/class_setting.png" />
  
@@ -37,9 +44,6 @@ Back Image
 
 <img src="https://github.com/YangChing/YCRateView/blob/master/Example/YCRateView/Images.xcassets/gold_star_space.imageset/gold_star_space%403x.png" />
 
-Sample
-
-<img src="https://github.com/YangChing/YCRateView/blob/master/Image/animation.gif" />
 
 ## Author
 
